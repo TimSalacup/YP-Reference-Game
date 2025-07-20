@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+select {
+    padding: 8px;
+    height: 100%;
+    width: 56px; 
+    margin-right: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+button {
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gameWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    background-color: rgba(0, 0, 0, .8);
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.verse {
+    height: 60vh;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 48px 108px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, .2);
+    margin-bottom: 40px;
+    border-radius: 20px;
+    max-width: 1000px;
+    position: relative;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 20px; 
+    width: 70%;
+    padding: 24px 48px;
+    max-width: 1000px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 32px;
+    font-weight: 600
+}
+
+.answer {
+    display: flex;
+    align-items: center;
+    height: 30%;
+}
+
+.checkAnswer {
+    padding: 16px 24px;
+    background-color: rgb(108, 108, 255);
+    color: white;
+    height: auto;
+    border-radius: 8px;
+}
+
+.reset {
+    padding: 16px 24px;
+    background-color: rgb(57, 161, 91);
+    margin-left: 8px;
+    color: white;
+    height: auto;
+    border-radius: 8px;
+}
+
+.choices__1, .choices__2, .choices__3 {
+    width: 100%;
+    height: 48px;
+    padding: 8px;
+    transition: all 1000ms ease;
+    border-radius: 8px;
+    position: relative;
+}
+
+.choices__skeleton {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 280px;
+    border: none;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.choices__skeleton.show {
+    visibility: visible;
+}
+
+.choices__2 {
+    margin: 8px 0;
+
+}
+
+.correct {
+    background-color: rgb(194, 255, 103);
+}
+
+.wrong {
+    background-color: rgb(255, 142, 142);
+}
+
+.errorMessage {
+    margin-top: 24px;
+}
+
+.loading {
+    visibility: hidden;
+    position: absolute;
+    color: black;
+    font-size: 104px;
+    background: transparent;
+    animation: rotateLoading 1000ms ease-out infinite;
+}
+
+.loading.show {
+    visibility: visible;
+}
+
+@keyframes rotateLoading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

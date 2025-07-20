@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YP Reference Game</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./scripts.js" defer></script>
+    <script src="https://kit.fontawesome.com/1a24ceb409.js" crossorigin="anonymous"></script> 
+  </head>
+  <body>
+    <div class="gameWrapper">
+      <div class="verse">
+        <span class="errorMessage"></span>
+        <i class="fa-solid fa-spinner loading"></i>
+      </div>
+      <div class="bottom">
+        <div class="choices">
+          <div class="choices__1"><div class="choices__skeleton"></div></div>
+          <div class="choices__2"><div class="choices__skeleton"></div></div>
+          <div class="choices__3"><div class="choices__skeleton"></div></div>
+        </div>
+        <div class="answer">
+          <select id="options">
+            <option value="0" selected disabled>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <button class="checkAnswer">ANSWER</button>
+          <button class="reset">RESET</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
