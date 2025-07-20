@@ -40,6 +40,7 @@ async function fetchKJV(i) {
     const data = await res.json();
     return data;
   } catch (error) {
+    loadingIcon.classList.toggle("show");
     errorMessage.innerHTML +=
       "Bible API didn't respond, please wait a few moments...";
     setTimeout(() => {
