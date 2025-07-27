@@ -1,5 +1,8 @@
 let info = [];
 let questions = [];
+const random = false;
+let present = "";
+const condition = document.querySelector(".linkToAlt").innerHTML;
 const verse = document.querySelector(".verse");
 const choice1 = document.querySelector(".choices__1");
 const choice2 = document.querySelector(".choices__2");
@@ -13,6 +16,8 @@ loadingIcon.classList.toggle("show");
 choicesSkeleton.forEach((el) => {
   el.classList.toggle("show");
 });
+
+console.log(condition.includes("BACK TO DEFAULT"))
 
 async function fetchData() {
   try {
@@ -65,6 +70,25 @@ const loadChoices = async () => {
   }
 };
 
+function scrambleSentence(sentence) {
+  // Split the sentence into words
+  const words = sentence.split(" ");
+
+  // Shuffle the words using Fisher-Yates algorithm
+  for (let i = words.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [words[i], words[j]] = [words[j], words[i]];
+  }
+
+  // Join the words back into a sentence
+  return words.join(" ");
+}
+
+function lowercaseFirstLetter(sentence) {
+  if (!sentence) return "";
+  return sentence[0].toLowerCase() + sentence.slice(1);
+}
+
 const answer = generateRandomNum();
 
 // PUTS THE KJV VERSES INTO AN ARRAY
@@ -78,12 +102,19 @@ const loadQuestions = async () => {
     choicesSkeleton.forEach((el) => {
       el.classList.toggle("show");
     });
+    present = questions[answer].text;
+    if (condition.includes("BACK TO DEFAULT")) {
+      const temp = questions[answer].text;
+      temp1 = lowercaseFirstLetter(temp);
+      present = scrambleSentence(temp1);
+    }
     setPage();
   }
 };
 
 const setPage = () => {
-  verse.innerHTML += `${questions[answer].text}`;
+  console.log(questions[answer])
+  verse.innerHTML += `${present}`;
   choice1.innerHTML += `1: ${questions[0].book_name} ${questions[0].chapter}:${questions[0].verse}`;
   choice2.innerHTML += `2: ${questions[1].book_name} ${questions[1].chapter}:${questions[1].verse}`;
   choice3.innerHTML += `3: ${questions[2].book_name} ${questions[2].chapter}:${questions[2].verse}`;

@@ -11,7 +11,7 @@
 select {
   padding: 8px;
   height: 100%;
-  width: 56px;
+  width: 56px; 
   margin-right: 24px;
   font-size: 24px;
   font-weight: 600;
@@ -30,10 +30,9 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0px;
+  padding: 24px 0;
   background-color: rgba(0, 0, 0, 0.8);
   height: 100vh;
-  overflow-y: hidden;
 }
 
 .verse {
@@ -145,6 +144,20 @@ button {
   font-size: 104px;
   background: transparent;
   animation: rotateLoading 1000ms ease-out infinite;
+}
+
+.linkToAlt {
+  transition: all 500ms ease;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 24px 0;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.linkToAlt:hover {
+  background-color: rgb(194, 255, 103);
 }
 
 .loading.show {
